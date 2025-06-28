@@ -815,11 +815,11 @@ function animatePlanetSystem() {
 // ---- RANDOM MUSIC NÈ ----
 // ===========================
 
-let galaxyAudio = null;
+let galaxyAudio;
 
 function preloadGalaxyAudio() {
   const audioSources = [
-   "AE THEM NHAC TUY NHA"
+    "universe.mp3" // pastikan file ini ada
   ];
 
   const randomIndex = Math.floor(Math.random() * audioSources.length);
@@ -829,7 +829,6 @@ function preloadGalaxyAudio() {
   galaxyAudio.loop = true;
   galaxyAudio.volume = 1.0;
 
-  // Preload không autoplay
   galaxyAudio.preload = "auto";
 }
 
@@ -840,7 +839,16 @@ function playGalaxyAudio() {
     });
   }
 }
+
+// Panggil preload saat halaman load
 preloadGalaxyAudio();
+
+// Tambahkan event listener pada tombol
+document.getElementById("play-btn").addEventListener("click", () => {
+  playGalaxyAudio();
+  document.getElementById("play-btn").style.display = "none";
+});
+
 
 
 
@@ -1114,7 +1122,7 @@ function createHintText() {
   canvas.width = canvas.height = canvasSize;
   const context = canvas.getContext('2d');
   const fontSize = 50;
-  const text = 'Chạm Vào Tinh Cầu';
+  const text = 'Jstmann';
   context.font = `bold ${fontSize}px Arial, sans-serif`;
   context.textAlign = 'center';
   context.textBaseline = 'middle';
