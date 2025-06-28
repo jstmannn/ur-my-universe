@@ -815,11 +815,11 @@ function animatePlanetSystem() {
 // ---- RANDOM MUSIC NÈ ----
 // ===========================
 
-let galaxyAudio;
+llet galaxyAudio = null;
 
 function preloadGalaxyAudio() {
   const audioSources = [
-    "universe.mp3" // pastikan file ini ada
+    "universe.mp3" // Ganti dengan nama file audio yang valid dan tersedia
   ];
 
   const randomIndex = Math.floor(Math.random() * audioSources.length);
@@ -829,6 +829,7 @@ function preloadGalaxyAudio() {
   galaxyAudio.loop = true;
   galaxyAudio.volume = 1.0;
 
+  // Preload tidak otomatis memutar, hanya menyiapkan
   galaxyAudio.preload = "auto";
 }
 
@@ -840,8 +841,8 @@ function playGalaxyAudio() {
   }
 }
 
-// Panggil preload saat halaman load
 preloadGalaxyAudio();
+
 
 // Tambahkan event listener pada tombol
 document.getElementById("play-btn").addEventListener("click", () => {
