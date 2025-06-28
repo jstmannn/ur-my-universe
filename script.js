@@ -815,7 +815,7 @@ function animatePlanetSystem() {
 // ---- RANDOM MUSIC NÈ ----
 // ===========================
 
-llet galaxyAudio = null;
+let galaxyAudio = null;
 
 function preloadGalaxyAudio() {
   const audioSources = [
@@ -842,16 +842,6 @@ function playGalaxyAudio() {
 }
 
 preloadGalaxyAudio();
-
-
-// Tambahkan event listener pada tombol
-document.getElementById("play-btn").addEventListener("click", () => {
-  playGalaxyAudio();
-  document.getElementById("play-btn").style.display = "none";
-});
-
-
-
 
 // ---- VÒNG LẶP ANIMATE ----
 let fadeOpacity = 0.1;
